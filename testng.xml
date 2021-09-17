@@ -1,0 +1,12 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+<suite name="Suite" verbose="1" thread-count="1">
+  <listeners>
+    <listener class-name="com.example.TestListener"/>
+  </listeners>
+  <test name="Google" enabled="true">
+    <classes>
+      <class name="com.example.GoogleTest">
+      </class>
+    </classes>
+  </test>
+</suite>
