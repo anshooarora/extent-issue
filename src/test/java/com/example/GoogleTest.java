@@ -24,7 +24,9 @@ public class GoogleTest {
   private static WebDriver driver;
 
   @BeforeMethod(alwaysRun = true)
-  public void beforeMethod(Method method, ITestResult result, ITestContext context) {
+  public synchronized void beforeMethod(Method method, ITestResult result, ITestContext context) {
+    if (ExtentTestManager.getTest() == null)
+      ExtentTestManager.startTest(context.getName(), null);
     ExtentTest test = ExtentTestManager.getTest().createNode(method.getName());
     ExtentTestManager.setNode(test);
     test.info("Test Started");
